@@ -220,7 +220,7 @@ button {
     radial-gradient(circle at 18% 24%, rgba(255, 209, 125, 0.34), transparent 28%),
     radial-gradient(circle at 75% 48%, rgba(142, 76, 31, 0.38), transparent 30%),
     linear-gradient(135deg, rgba(90, 53, 25, 0.55), rgba(246, 190, 116, 0.3)),
-    url("https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=1800&q=80");
+    url("images/nikepink.webp");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -302,7 +302,7 @@ button {
   min-height: 310px;
   background:
     linear-gradient(90deg, rgba(255, 246, 229, 0.95), rgba(255, 218, 160, 0.78)),
-    url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1700&q=85");
+    url("images/nikered.webp");
   background-size: cover;
   background-position: center;
   box-shadow: var(--shadow);
@@ -661,7 +661,7 @@ button {
   font-family: "Playfair Display", serif;
   font-size: clamp(3rem, 5vw, 4.5rem);
   line-height: 1;
-  color: #63b084;
+  color: #d84a26;
   font-style: italic;
   margin-right: 6px;
 }
