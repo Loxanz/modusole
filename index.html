@@ -8,12 +8,12 @@
 
   <meta
     name="description"
-    content="ModuSole is a modern shoe-selling website featuring stylish shoes, responsive design, Z-pattern layout, semantic HTML, and SEO-friendly structure."
+    content="ModuSole is a modern shoe website offering stylish sneakers, casual shoes, and everyday footwear for comfort and fashion."
   />
 
   <meta
     name="keywords"
-    content="ModuSole, modern shoes, modern sneakers, shoe shop, footwear, running shoes, casual shoes, responsive shoe website"
+    content="ModuSole, modern shoes, modern sneakers, shoe shop, footwear, running shoes, casual shoes, slides, everyday shoes, stylish shoes, comfortable shoes"
   />
 
   <meta name="author" content="ModuSole" />
@@ -53,12 +53,20 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#shop">Shop</a></li>
           <li><a href="#impact">About</a></li>
-          <li><a href="#newsletter">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="#shop" class="btn btn-outline">Shop Now</a>
+        <button
+          type="button"
+          class="btn btn-outline"
+          data-open-google-form
+          data-form-heading="ModuSole Order Form"
+        >
+          Shop Now
+        </button>
+
         <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
           ☰
         </button>
@@ -171,9 +179,17 @@
             <img src="images/nikered.webp" alt="Urban Runner shoe" />
             <div class="bestseller-overlay">
               <span class="product-tag">Sneakers</span>
-              <h3>Urban Runner</h3>
+              <h3>Nike Free RN Flyknit</h3>
               <p class="bestseller-desc">Lightweight comfort for everyday movement.</p>
               <p class="bestseller-price">₱4,299</p>
+              <button
+                type="button"
+                class="product-form-btn"
+                data-open-google-form
+                data-form-heading="Order Inquiry: Urban Runner"
+              >
+                Order
+              </button>
             </div>
           </article>
 
@@ -181,9 +197,17 @@
             <img src="images/nikebrown.webp" alt="Classic Flex shoe" />
             <div class="bestseller-overlay">
               <span class="product-tag">Lifestyle</span>
-              <h3>Classic Flex</h3>
+              <h3>Nike Air Force 1 Low</h3>
               <p class="bestseller-desc">Timeless silhouette with premium streetwear appeal.</p>
               <p class="bestseller-price">₱3,899</p>
+              <button
+                type="button"
+                class="product-form-btn"
+                data-open-google-form
+                data-form-heading="Order Inquiry: Classic Flex"
+              >
+                Order
+              </button>
             </div>
           </article>
 
@@ -191,18 +215,31 @@
             <img src="images/nikeblackred.webp" alt="Trail Blazer shoe" />
             <div class="bestseller-overlay">
               <span class="product-tag">Training</span>
-              <h3>Trail Blazer</h3>
+              <h3>Air Jordan 1 Retro High OG</h3>
               <p class="bestseller-desc">Built for grip, support, and outdoor-ready style.</p>
               <p class="bestseller-price">₱5,219</p>
+              <button
+                type="button"
+                class="product-form-btn"
+                data-open-google-form
+                data-form-heading="Order Inquiry: Trail Blazer"
+              >
+                Order
+              </button>
             </div>
           </article>
         </div>
 
         <div class="bestseller-action">
-          <a href="#categories" class="view-products-btn">
+          <button
+            type="button"
+            class="view-products-btn"
+            data-open-google-form
+            data-form-heading="ModuSole Product Inquiry Form"
+          >
             View All Products
             <span aria-hidden="true">→</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -326,7 +363,15 @@
       </div>
 
       <div class="footer-cta-actions">
-        <a href="#shop" class="footer-cta-btn primary-footer-btn">Shop Bestsellers</a>
+        <button
+          type="button"
+          class="footer-cta-btn primary-footer-btn"
+          data-open-google-form
+          data-form-heading="ModuSole Bestsellers Order Form"
+        >
+          Shop Bestsellers
+        </button>
+
         <a href="#categories" class="footer-cta-btn secondary-footer-btn">Browse Categories</a>
       </div>
     </div>
@@ -411,14 +456,14 @@
         <a href="#">Order Tracking</a>
         <a href="#">Return Policy</a>
         <a href="#">Shipping Info</a>
-        <a href="#newsletter">Contact Us</a>
+        <a href="#contact">Contact Us</a>
       </section>
 
-      <section class="footer-column footer-contact" aria-label="Store contact information">
+      <section class="footer-column footer-contact" id="contact" aria-label="Store contact information">
         <h3>Contact</h3>
         <address>
-          <p>Email: support@modusole.com</p>
-          <p>Phone: +63 912 345 6789</p>
+          <p>Email: bunsazr@gmail.com</p>
+          <p>Phone: +63 995 586 5337</p>
           <p>Location: Philippines</p>
         </address>
 
@@ -432,7 +477,7 @@
             required
           />
           <button type="submit" aria-label="Submit footer newsletter form">
-            →
+            <span aria-hidden="true">→</span>
           </button>
         </form>
       </section>
@@ -448,6 +493,50 @@
       </div>
     </div>
   </footer>
+
+  <div
+    class="google-form-modal"
+    id="googleFormModal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="googleFormTitle"
+  >
+    <div class="google-form-backdrop" data-close-google-form></div>
+
+    <section class="google-form-box">
+      <div class="google-form-header">
+        <div>
+          <span class="modal-kicker">ModuSole Form</span>
+          <h2 id="googleFormTitle">ModuSole Order Form</h2>
+          <p>
+            Please fill out the form below so we can process your shoe order or inquiry.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="google-form-close"
+          id="closeGoogleForm"
+          aria-label="Close Google Form"
+          data-close-google-form
+        >
+          ×
+        </button>
+      </div>
+
+      <div class="google-form-frame-wrap">
+        <iframe
+          id="googleFormFrame"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSd7wQ_3qwpT2QibPvPlZzY9cndV4bYqn4JViZVX9JmoXlRiNQ/viewform?embedded=true"
+          title="ModuSole Google Form"
+          loading="lazy"
+        >
+          Loading…
+        </iframe>
+      </div>
+    </section>
+  </div>
 
   <script src="script.js"></script>
 </body>

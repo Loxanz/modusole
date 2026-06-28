@@ -5,6 +5,14 @@ const navLinks = document.querySelectorAll(".nav-menu a");
 const newsletterForm = document.querySelector(".newsletter-form");
 const footerNewsletterForm = document.querySelector(".footer-newsletter-form");
 
+const googleFormModal = document.getElementById("googleFormModal");
+const googleFormTitle = document.getElementById("googleFormTitle");
+const closeGoogleFormButton = document.getElementById("closeGoogleForm");
+const openGoogleFormButtons = document.querySelectorAll("[data-open-google-form]");
+const closeGoogleFormElements = document.querySelectorAll("[data-close-google-form]");
+
+let lastFocusedElement = null;
+
 function updateHeaderBackground() {
   if (window.scrollY > 80) {
     siteHeader.classList.add("scrolled");
@@ -49,3 +57,43 @@ if (newsletterForm) {
 if (footerNewsletterForm) {
   footerNewsletterForm.addEventListener("submit", handleSubscription);
 }
+
+function openGoogleForm(event) {
+  const button = event.currentTarget;
+  const heading = button.getAttribute("data-form-heading") || "ModuSole Order Form";
+
+  lastFocusedElement = document.activeElement;
+  googleFormTitle.textContent = heading;
+
+  googleFormModal.classList.add("active");
+  googleFormModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  if (closeGoogleFormButton) {
+    closeGoogleFormButton.focus();
+  }
+}
+
+function closeGoogleForm() {
+  googleFormModal.classList.remove("active");
+  googleFormModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+
+  if (lastFocusedElement) {
+    lastFocusedElement.focus();
+  }
+}
+
+openGoogleFormButtons.forEach((button) => {
+  button.addEventListener("click", openGoogleForm);
+});
+
+closeGoogleFormElements.forEach((element) => {
+  element.addEventListener("click", closeGoogleForm);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && googleFormModal.classList.contains("active")) {
+    closeGoogleForm();
+  }
+});
