@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ModuSole | Modern Shoes for Everyday Style</title>
+
+  <meta
+    name="description"
+    content="ModuSole is a modern shoe-selling website featuring stylish shoes, responsive design, Z-pattern layout, semantic HTML, and SEO-friendly structure."
+  />
+
+  <meta
+    name="keywords"
+    content="ModuSole, modern shoes, modern sneakers, shoe shop, footwear, running shoes, casual shoes, responsive shoe website"
+  />
+
+  <meta name="author" content="ModuSole" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="ModuSole | Modern Shoes" />
+  <meta
+    property="og:description"
+    content="Shop modern shoes designed for comfort, movement, and everyday style."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/modusole.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrapper">
+      <a href="#home" class="logo" aria-label="ModuSole Home">
+        <img
+          src="images/modusole.webp"
+          alt="ModuSole Logo"
+          class="logo-img"
+        />
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#impact">About</a></li>
+          <li><a href="#newsletter">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#shop" class="btn btn-outline">Shop Now</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h1 class="hero-title" id="hero-title">
+              Step Into
+              <span>Your Style</span>
+            </h1>
+          </div>
+
+          <div class="hero-content">
+            <p>
+              Premium shoes designed for comfort, confidence, and motion.
+              Every pair is made to match your pace and complete your everyday fit.
+            </p>
+
+            <a href="#shop" class="btn btn-primary">
+              Explore Collection
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <article class="shoe-showcase" aria-label="shoe showcase">
+          <div class="showcase-info">
+            <small>Featured Drop</small>
+            <h2>Modern Essentials</h2>
+            <p>
+              Clean silhouettes, bold details, and modern comfort for school,
+              streetwear, sports, and everyday movement.
+            </p>
+          </div>
+
+          <div class="shoe-strip">
+            <div class="shoe-card">
+              <img src="images/puma.webp" alt="Puma running shoe" />
+            </div>
+
+            <div class="shoe-card">
+              <img src="images/nike.webp" alt="Modern Nike sneaker" />
+            </div>
+
+            <div class="shoe-card">
+              <img src="images/adidas.webp" alt="Adidas casual sneaker" />
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="impact section-padding" id="impact" aria-labelledby="impact-title">
+      <div class="container impact-grid">
+        <div class="impact-left">
+          <span class="impact-label">Our Impact</span>
+          <h2 class="impact-title" id="impact-title">
+            Crafted for those who move through the world with intention
+          </h2>
+        </div>
+
+        <div class="impact-right">
+          <p class="impact-description">
+            Since our founding, we have dedicated ourselves to one mission:
+            creating footwear that blends timeless design with modern comfort.
+            Every stitch, every material, and every silhouette is thoughtfully
+            considered for people who move with confidence.
+          </p>
+
+          <div class="impact-stats">
+            <article class="stat-card">
+              <h3>50K<span>+</span></h3>
+              <p>Happy Customers Worldwide</p>
+            </article>
+
+            <article class="stat-card">
+              <h3>12K<span>+</span></h3>
+              <p>Five-Star Reviews</p>
+            </article>
+
+            <article class="stat-card">
+              <h3>98<span>%</span></h3>
+              <p>Customer Satisfaction Rate</p>
+            </article>
+
+            <article class="stat-card">
+              <h3>30</h3>
+              <p>Day Free Returns & Exchanges</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bestsellers section-padding" id="shop" aria-labelledby="bestsellers-title">
+      <div class="container">
+        <div class="bestsellers-header">
+          <h2 id="bestsellers-title">Our Bestsellers</h2>
+          <p>The pairs everyone is talking about</p>
+        </div>
+
+        <div class="bestseller-grid">
+          <article class="bestseller-card">
+            <img
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+              alt="Urban Runner shoe"
+            />
+            <div class="bestseller-overlay">
+              <span class="product-tag">Sneakers</span>
+              <h3>Urban Runner</h3>
+              <p class="bestseller-desc">Lightweight comfort for everyday movement.</p>
+              <p class="bestseller-price">₱4,299</p>
+            </div>
+          </article>
+
+          <article class="bestseller-card">
+            <img
+              src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=85"
+              alt="Classic Flex shoe"
+            />
+            <div class="bestseller-overlay">
+              <span class="product-tag">Lifestyle</span>
+              <h3>Classic Flex</h3>
+              <p class="bestseller-desc">Timeless silhouette with premium streetwear appeal.</p>
+              <p class="bestseller-price">₱3,899</p>
+            </div>
+          </article>
+
+          <article class="bestseller-card">
+            <img
+              src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=85"
+              alt="Trail Blazer shoe"
+            />
+            <div class="bestseller-overlay">
+              <span class="product-tag">Training</span>
+              <h3>Trail Blazer</h3>
+              <p class="bestseller-desc">Built for grip, support, and outdoor-ready style.</p>
+              <p class="bestseller-price">₱5,219</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="bestseller-action">
+          <a href="#categories" class="view-products-btn">
+            View All Products
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories section-padding" id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="category-heading">
+          <div>
+            <span class="category-kicker">Browse by</span>
+            <h2 id="categories-title">Category</h2>
+          </div>
+
+          <span class="category-symbol" aria-hidden="true">&amp;</span>
+        </div>
+
+        <div class="category-grid">
+          <article class="category-card">
+            <div class="category-image">
+              <img src="images/sneakers.webp" alt="White modern sneakers category" />
+            </div>
+
+            <div class="category-content">
+              <div class="category-icon" aria-hidden="true">⌘</div>
+              <div>
+                <h3>Sneakers</h3>
+                <p>Everyday comfort</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-image">
+              <img src="images/slide.webp" alt="Slides category" />
+            </div>
+
+            <div class="category-content">
+              <div class="category-icon" aria-hidden="true">✧</div>
+              <div>
+                <h3>Slides</h3>
+                <p>Refined streetwear</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-image">
+              <img src="images/running.webp" alt="Running shoes category" />
+            </div>
+
+            <div class="category-content">
+              <div class="category-icon" aria-hidden="true">⌑</div>
+              <div>
+                <h3>Running Shoes</h3>
+                <p>Built to last</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-image">
+              <img src="images/casual.webp" alt="Casual shoes category" />
+            </div>
+
+            <div class="category-content">
+              <div class="category-icon" aria-hidden="true">☼</div>
+              <div>
+                <h3>Casual</h3>
+                <p>Warm-weather ease</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+      <div class="container newsletter-grid">
+        <article class="newsletter-banner" aria-label="ModuSole newsletter banner">
+          <h2>Never Miss<br />A Step</h2>
+        </article>
+
+        <article class="newsletter-content">
+          <h2 id="newsletter-title">Stay in the loop</h2>
+          <p>
+            Join 50,000+ subscribers and get early access to new drops,
+            exclusive offers, and style inspiration delivered to your inbox.
+          </p>
+
+          <form class="newsletter-form">
+            <label for="newsletterEmail" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="newsletterEmail"
+              name="newsletterEmail"
+              placeholder="Your email address"
+              required
+            />
+            <button type="submit">
+              Subscribe
+              <span aria-hidden="true">→</span>
+            </button>
+          </form>
+
+          <small>No spam, unsubscribe anytime. We respect your privacy.</small>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="footer-bg-text" aria-hidden="true">MODUSOLE</div>
+
+    <div class="container footer-main">
+      <section class="footer-brand" aria-label="Footer brand">
+        <div class="footer-logo-box">
+          <img
+            src="images/modusole.webp"
+            alt="ModuSole Logo"
+            class="footer-logo"
+          />
+        </div>
+
+        <h2>Ready to step up<br />your style?</h2>
+      </section>
+
+      <section class="footer-column" aria-label="Shop links">
+        <h3>Shop</h3>
+        <a href="#categories">Sneakers</a>
+        <a href="#categories">Slides</a>
+        <a href="#categories">Training</a>
+        <a href="#categories">Casual</a>
+        <a href="#shop">All Products</a>
+      </section>
+
+      <section class="footer-column" aria-label="Social links">
+        <h3>Connect</h3>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">Facebook</a>
+      </section>
+
+      <section class="footer-column footer-newsletter" aria-label="Footer newsletter">
+        <h3>Newsletter</h3>
+        <p>Get the latest drops and exclusive offers.</p>
+
+        <form class="footer-newsletter-form">
+          <label for="footerEmail" class="sr-only">Your email</label>
+          <input
+            type="email"
+            id="footerEmail"
+            name="footerEmail"
+            placeholder="Your email"
+            required
+          />
+          <button type="submit" aria-label="Submit footer newsletter form">
+            →
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 ModuSole. All rights reserved. Not affiliated with any trademarked brand.</p>
+
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Shipping & Returns</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
