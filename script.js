@@ -8,9 +8,9 @@ const contactForm = document.getElementById("contactForm");
 
 const googleFormModal = document.getElementById("googleFormModal");
 const googleFormTitle = document.getElementById("googleFormTitle");
+const googleFormFrame = document.getElementById("googleFormFrame");
 const closeGoogleFormButton = document.getElementById("closeGoogleForm");
 const openGoogleFormButtons = document.querySelectorAll("[data-open-google-form]");
-const closeGoogleFormElements = document.querySelectorAll("[data-close-google-form]");
 
 let lastFocusedElement = null;
 
@@ -22,7 +22,7 @@ function updateHeaderBackground() {
   }
 }
 
-window.addEventListener("scroll", updateHeaderBackground);
+window.addEventListener("scroll", updateHeaderBackground, { passive: true });
 window.addEventListener("load", updateHeaderBackground);
 
 menuToggle.addEventListener("click", () => {
@@ -76,6 +76,10 @@ function openGoogleForm(event) {
   lastFocusedElement = document.activeElement;
   googleFormTitle.textContent = heading;
 
+  if (googleFormFrame && !googleFormFrame.src && googleFormFrame.dataset.src) {
+    googleFormFrame.src = googleFormFrame.dataset.src;
+  }
+
   googleFormModal.classList.add("active");
   googleFormModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
@@ -99,12 +103,6 @@ openGoogleFormButtons.forEach((button) => {
   button.addEventListener("click", openGoogleForm);
 });
 
-closeGoogleFormElements.forEach((element) => {
-  element.addEventListener("click", closeGoogleForm);
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && googleFormModal.classList.contains("active")) {
-    closeGoogleForm();
-  }
-});
+if (closeGoogleFormButton) {
+  closeGoogleFormButton.addEventListener("click", closeGoogleForm);
+}

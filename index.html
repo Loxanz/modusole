@@ -27,10 +27,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="images/modusole.webp" />
 
+  <link rel="preload" href="images/nikepink.webp" as="image" type="image/webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Playfair+Display:wght@700&display=swap"
     rel="stylesheet"
   />
 
@@ -45,6 +46,9 @@
           src="images/modusole.webp"
           alt="ModuSole Logo"
           class="logo-img"
+          width="270"
+          height="84"
+          decoding="async"
         />
       </a>
 
@@ -77,7 +81,7 @@
   <main>
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
-        <img src="images/nikepink.webp" alt="" class="hero-bg-img" />
+        <img src="images/nikepink.webp" alt="" class="hero-bg-img" fetchpriority="high" decoding="async" />
       </div>
 
       <div class="container">
@@ -114,15 +118,15 @@
 
           <div class="shoe-strip">
             <div class="shoe-card">
-              <img src="images/puma.webp" alt="Puma running shoe" />
+              <img src="images/puma.webp" alt="Puma running shoe" loading="lazy" decoding="async" width="200" height="170" />
             </div>
 
             <div class="shoe-card">
-              <img src="images/nike.webp" alt="Modern Adidas sneaker" />
+              <img src="images/nike.webp" alt="Modern Adidas sneaker" loading="lazy" decoding="async" width="200" height="170" />
             </div>
 
             <div class="shoe-card">
-              <img src="images/adidas.webp" alt="Modern Nike sneaker" />
+              <img src="images/adidas.webp" alt="Modern Nike sneaker" loading="lazy" decoding="async" width="200" height="170" />
             </div>
           </div>
         </article>
@@ -138,7 +142,9 @@
 
         <div class="bestseller-grid">
           <article class="bestseller-card">
-            <img src="images/final1.webp" alt="Urban Runner shoe" />
+            <div class="bestseller-media">
+              <img src="images/final1.webp" alt="Urban Runner shoe" loading="lazy" decoding="async" />
+            </div>
             <div class="bestseller-overlay">
               <span class="product-tag">Sneakers</span>
               <h3>Nike Free RN Flyknit</h3>
@@ -156,7 +162,9 @@
           </article>
 
           <article class="bestseller-card">
-            <img src="images/final2.webp" alt="Classic Flex shoe" />
+            <div class="bestseller-media">
+              <img src="images/final2.webp" alt="Classic Flex shoe" loading="lazy" decoding="async" />
+            </div>
             <div class="bestseller-overlay">
               <span class="product-tag">Lifestyle</span>
               <h3>Nike Air Force 1 Low</h3>
@@ -174,7 +182,9 @@
           </article>
 
           <article class="bestseller-card">
-            <img src="images/final3.webp" alt="Trail Blazer shoe" />
+            <div class="bestseller-media">
+              <img src="images/final3.webp" alt="Trail Blazer shoe" loading="lazy" decoding="async" />
+            </div>
             <div class="bestseller-overlay">
               <span class="product-tag">Training</span>
               <h3>Air Jordan 1 Retro High OG</h3>
@@ -220,7 +230,7 @@
         <div class="category-grid">
           <article class="category-card">
             <div class="category-image">
-              <img src="images/sneakers.webp" alt="White modern sneakers category" />
+              <img src="images/sneakers.webp" alt="White modern sneakers category" loading="lazy" decoding="async" />
             </div>
 
             <div class="category-content">
@@ -234,7 +244,7 @@
 
           <article class="category-card">
             <div class="category-image">
-              <img src="images/slide.webp" alt="Slides category" />
+              <img src="images/slide.webp" alt="Slides category" loading="lazy" decoding="async" />
             </div>
 
             <div class="category-content">
@@ -248,7 +258,7 @@
 
           <article class="category-card">
             <div class="category-image">
-              <img src="images/running.webp" alt="Running shoes category" />
+              <img src="images/running.webp" alt="Running shoes category" loading="lazy" decoding="async" />
             </div>
 
             <div class="category-content">
@@ -262,7 +272,7 @@
 
           <article class="category-card">
             <div class="category-image">
-              <img src="images/casual.webp" alt="Casual shoes category" />
+              <img src="images/casual.webp" alt="Casual shoes category" loading="lazy" decoding="async" />
             </div>
 
             <div class="category-content">
@@ -432,56 +442,6 @@
   <footer class="site-footer" id="footer">
     <div class="footer-bg-text" aria-hidden="true">MODUSOLE</div>
 
-    <div class="container footer-cta">
-      <div class="footer-cta-content">
-        <span class="footer-cta-label">Step into comfort</span>
-        <h2>Find your next everyday pair with ModuSole.</h2>
-        <p>
-          Discover sneakers, slides, running shoes, and casual pairs made for movement,
-          comfort, and modern style.
-        </p>
-      </div>
-
-      <div class="footer-cta-actions">
-        <button
-          type="button"
-          class="footer-cta-btn primary-footer-btn"
-          data-open-google-form
-          data-form-heading="ModuSole Bestsellers Order Form"
-        >
-          Shop Bestsellers
-        </button>
-
-        <a href="#categories" class="footer-cta-btn secondary-footer-btn">Browse Categories</a>
-      </div>
-    </div>
-
-    <div class="container footer-benefits" aria-label="Store benefits">
-      <article class="footer-benefit-card">
-        <span aria-hidden="true">↺</span>
-        <div>
-          <h3>30-Day Returns</h3>
-          <p>Easy exchange for size and comfort issues.</p>
-        </div>
-      </article>
-
-      <article class="footer-benefit-card">
-        <span aria-hidden="true">✓</span>
-        <div>
-          <h3>Quality Checked</h3>
-          <p>Every pair is reviewed before checkout.</p>
-        </div>
-      </article>
-
-      <article class="footer-benefit-card">
-        <span aria-hidden="true">✦</span>
-        <div>
-          <h3>Modern Style</h3>
-          <p>Clean footwear picks for daily outfits.</p>
-        </div>
-      </article>
-    </div>
-
     <div class="container footer-main">
       <section class="footer-brand" aria-label="Footer brand">
         <div class="footer-logo-box">
@@ -489,6 +449,10 @@
             src="images/modusole.webp"
             alt="ModuSole Logo"
             class="footer-logo"
+            width="260"
+            height="82"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -499,24 +463,15 @@
 
         <div class="footer-socials" aria-label="Social media links">
           <a href="#" aria-label="Instagram" title="Instagram">
-            <img
-              src="https://cdn.simpleicons.org/instagram/ffffff"
-              alt="Instagram logo"
-            />
+            <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.45 8 1.25 1.25 0 0 1 16.2 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
           </a>
 
           <a href="#" aria-label="Facebook" title="Facebook">
-            <img
-              src="https://cdn.simpleicons.org/facebook/ffffff"
-              alt="Facebook logo"
-            />
+            <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.2l-.4 3h-1.8v7A10 10 0 0 0 22 12"/></svg>
           </a>
 
           <a href="#" aria-label="X Twitter" title="X / Twitter">
-            <img
-              src="https://cdn.simpleicons.org/x/ffffff"
-              alt="X logo"
-            />
+            <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.6l-5.2-6.8L5.4 22H2.3l7.3-8.4L.8 2h6.8l4.7 6.2L18.9 2zm-1.1 18h1.7L7.1 3.9H5.3L17.8 20z"/></svg>
           </a>
         </div>
       </section>
@@ -582,7 +537,7 @@
     aria-modal="true"
     aria-labelledby="googleFormTitle"
   >
-    <div class="google-form-backdrop" data-close-google-form></div>
+    <div class="google-form-backdrop" aria-hidden="true"></div>
 
     <section class="google-form-box">
       <div class="google-form-header">
@@ -608,7 +563,7 @@
       <div class="google-form-frame-wrap">
         <iframe
           id="googleFormFrame"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSd7wQ_3qwpT2QibPvPlZzY9cndV4bYqn4JViZVX9JmoXlRiNQ/viewform?embedded=true"
+          data-src="https://docs.google.com/forms/d/e/1FAIpQLSd7wQ_3qwpT2QibPvPlZzY9cndV4bYqn4JViZVX9JmoXlRiNQ/viewform?embedded=true"
           title="ModuSole Google Form"
           loading="lazy"
         >
@@ -618,6 +573,6 @@
     </section>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

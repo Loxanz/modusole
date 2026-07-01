@@ -38,9 +38,11 @@ body.modal-open {
   overflow: hidden;
 }
 
-img {
-  max-width: 100%;
+img:not(.logo-img):not(.footer-logo) {
   display: block;
+  height: auto;
+  width: auto;
+  max-width: none;
 }
 
 a {
@@ -58,7 +60,17 @@ button {
 }
 
 .section-padding {
-  padding: 95px 0;
+  padding: 72px 0;
+}
+
+.bestsellers,
+.categories,
+.impact,
+.newsletter-section,
+.contact-section,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 480px;
 }
 
 .sr-only {
@@ -146,12 +158,11 @@ button {
 }
 
 .logo-img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  transform: scale(1);
-  transform-origin: center;
 }
 
 .site-header.scrolled .logo {
@@ -220,8 +231,8 @@ button {
 }
 
 .hero {
-  padding: 150px 0 68px;
-  padding-top: calc(150px + env(safe-area-inset-top));
+  padding: 130px 0 56px;
+  padding-top: calc(130px + env(safe-area-inset-top));
   position: relative;
   overflow: hidden;
 }
@@ -284,8 +295,8 @@ button {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
-  gap: 60px;
-  margin-top: 45px;
+  gap: 44px;
+  margin-top: 36px;
 }
 
 .hero-title {
@@ -323,7 +334,7 @@ button {
 .shoe-showcase {
   position: relative;
   z-index: 3;
-  margin-top: 78px;
+  margin-top: 52px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   min-height: 310px;
@@ -407,9 +418,6 @@ button {
 }
 
 .shoe-card img {
-  width: 100%;
-  height: 170px;
-  object-fit: contain;
   filter: drop-shadow(0 25px 22px rgba(55, 31, 12, 0.32));
   transform: rotate(-8deg);
   transition: 0.3s ease;
@@ -426,13 +434,13 @@ button {
 .impact-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 90px;
+  gap: 48px;
   align-items: start;
 }
 
 .impact-label {
   display: inline-block;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.82rem;
@@ -454,13 +462,13 @@ button {
   line-height: 1.55;
   color: #1f2a35;
   max-width: 720px;
-  margin-bottom: 58px;
+  margin-bottom: 40px;
 }
 
 .impact-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 54px 80px;
+  gap: 36px 48px;
 }
 
 .stat-card h3 {
@@ -491,7 +499,7 @@ button {
 }
 
 .bestsellers-header {
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 .bestsellers-header h2 {
@@ -510,15 +518,19 @@ button {
 
 .bestseller-grid {
   display: flex;
-  gap: 34px;
+  gap: 24px;
   align-items: stretch;
 }
 
 .bestseller-card {
   position: relative;
   flex: 1;
-  height: 430px;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: auto;
+  min-width: min-content;
   overflow: hidden;
   border-radius: 14px;
   background: #d9b785;
@@ -541,14 +553,25 @@ button {
   box-shadow: 0 28px 65px rgba(33, 20, 9, 0.22);
 }
 
-.bestseller-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.45s ease;
+.bestseller-media {
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+  width: max-content;
+  max-width: 100%;
 }
 
-.bestseller-card:hover img {
+.bestseller-media img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  transform-origin: 50% 50%;
+  transition: transform 0.45s ease;
+  backface-visibility: hidden;
+}
+
+.bestseller-card:hover .bestseller-media img {
   transform: scale(1.15);
 }
 
@@ -642,7 +665,7 @@ button {
 .bestseller-action {
   display: flex;
   justify-content: center;
-  margin-top: 44px;
+  margin-top: 32px;
 }
 
 .view-products-btn {
@@ -674,7 +697,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 58px;
+  margin-bottom: 40px;
 }
 
 .category-kicker {
@@ -706,7 +729,7 @@ button {
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
+  gap: 20px;
 }
 
 .category-card {
@@ -723,7 +746,6 @@ button {
 }
 
 .category-image {
-  height: 350px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -731,9 +753,7 @@ button {
 }
 
 .category-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
   transition: 0.35s ease;
 }
 
@@ -775,7 +795,7 @@ button {
 
 .newsletter-section {
   background: #fbfaf7;
-  padding: 0 0 64px;
+  padding: 0 0 48px;
 }
 
 .newsletter-grid {
@@ -786,10 +806,10 @@ button {
 }
 
 .newsletter-banner {
-  min-height: 345px;
+  min-height: 300px;
   display: flex;
   align-items: center;
-  padding: 64px 38px;
+  padding: 48px 32px;
   background:
     linear-gradient(90deg, rgba(79, 39, 15, 0.76), rgba(79, 39, 15, 0.2)),
     radial-gradient(circle at 20% 30%, rgba(255, 238, 199, 0.45), transparent 30%),
@@ -820,8 +840,8 @@ button {
 }
 
 .newsletter-content {
-  min-height: 345px;
-  padding: 64px 48px;
+  min-height: 300px;
+  padding: 48px 36px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -899,14 +919,14 @@ button {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 64px;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 40px;
   align-items: start;
 }
 
 .contact-label {
   display: inline-block;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.82rem;
@@ -920,15 +940,15 @@ button {
   line-height: 0.98;
   letter-spacing: -1.5px;
   color: #050505;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .contact-info > p {
   color: #34404a;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.55;
   max-width: 480px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .contact-details {
@@ -948,18 +968,18 @@ button {
 .contact-form {
   background: var(--white);
   border-radius: 18px;
-  padding: 36px;
+  padding: 28px;
   box-shadow: 0 18px 50px rgba(33, 20, 9, 0.1);
 }
 
 .contact-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: 14px;
 }
 
 .contact-field {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .contact-field label {
@@ -1031,8 +1051,8 @@ button {
   color: rgba(255, 255, 255, 0.72);
   margin: 0 12px;
   border-radius: 28px 28px 0 0;
-  padding: 46px 0 32px;
-  padding-bottom: max(32px, env(safe-area-inset-bottom));
+  padding: 36px 0 28px;
+  padding-bottom: max(28px, env(safe-area-inset-bottom));
 }
 
 .footer-bg-text {
@@ -1049,148 +1069,20 @@ button {
   white-space: nowrap;
 }
 
-.footer-cta {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1.2fr auto;
-  gap: 28px;
-  align-items: center;
-  padding: 34px;
-  border-radius: 24px;
-  background:
-    linear-gradient(135deg, rgba(255, 247, 234, 0.12), rgba(255, 255, 255, 0.04)),
-    rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
-  margin-bottom: 30px;
-}
-
-.footer-cta-label {
-  display: inline-block;
-  color: var(--orange);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  font-weight: 900;
-  margin-bottom: 10px;
-}
-
-.footer-cta h2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(2rem, 4vw, 4.1rem);
-  line-height: 1;
-  color: var(--white);
-  max-width: 760px;
-  margin-bottom: 12px;
-}
-
-.footer-cta p {
-  max-width: 650px;
-  color: rgba(255, 255, 255, 0.66);
-}
-
-.footer-cta-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.footer-cta-btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 48px;
-  padding: 0 22px;
-  border-radius: 999px;
-  font-weight: 800;
-  transition: 0.25s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.primary-footer-btn {
-  background: var(--orange);
-  color: var(--white);
-}
-
-.primary-footer-btn:hover {
-  background: var(--orange-dark);
-  transform: translateY(-3px);
-}
-
-.secondary-footer-btn {
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  color: var(--white);
-}
-
-.secondary-footer-btn:hover {
-  border-color: var(--orange);
-  color: var(--orange);
-  transform: translateY(-3px);
-}
-
-.footer-benefits {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-bottom: 46px;
-}
-
-.footer-benefit-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 20px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-benefit-card span {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(245, 155, 0, 0.16);
-  color: var(--orange);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  flex-shrink: 0;
-}
-
-.footer-benefit-card h3 {
-  color: var(--white);
-  font-size: 1rem;
-  margin-bottom: 4px;
-}
-
-.footer-benefit-card p {
-  color: rgba(255, 255, 255, 0.56);
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
 .footer-main {
   position: relative;
   z-index: 1;
   display: grid;
   grid-template-columns: 1.35fr 0.75fr 0.8fr 1.1fr;
-  gap: 44px;
-  padding: 44px 0 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 32px;
+  padding: 8px 0 36px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-brand {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .footer-logo-box {
@@ -1204,6 +1096,7 @@ button {
 }
 
 .footer-logo {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1230,13 +1123,10 @@ button {
   align-items: center;
   justify-content: center;
   transition: 0.25s ease;
-  overflow: hidden;
 }
 
-.footer-socials a img {
-  width: 19px;
-  height: 19px;
-  object-fit: contain;
+.footer-socials a svg {
+  flex-shrink: 0;
   transition: 0.25s ease;
 }
 
@@ -1245,7 +1135,7 @@ button {
   transform: translateY(-3px);
 }
 
-.footer-socials a:hover img {
+.footer-socials a:hover svg {
   transform: scale(1.12);
 }
 
@@ -1343,7 +1233,7 @@ button {
 .footer-bottom {
   position: relative;
   z-index: 1;
-  padding-top: 26px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   gap: 22px;
@@ -1496,10 +1386,6 @@ button {
     padding: 28px 24px 24px 0;
   }
 
-  .shoe-card img {
-    height: 150px;
-  }
-
   .bestseller-grid {
     gap: 24px;
   }
@@ -1584,10 +1470,6 @@ button {
     flex: 1;
   }
 
-  .bestseller-card {
-    height: 420px;
-  }
-
   .bestseller-desc {
     opacity: 1;
     transform: none;
@@ -1599,38 +1481,22 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .category-image {
-    height: 320px;
-  }
-
   .newsletter-grid {
     grid-template-columns: 1fr;
   }
 
   .newsletter-banner,
   .newsletter-content {
-    min-height: 300px;
+    min-height: 260px;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
   }
 
   .contact-form {
-    padding: 28px;
-  }
-
-  .footer-cta {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-cta-actions {
-    justify-content: flex-start;
-  }
-
-  .footer-benefits {
-    grid-template-columns: 1fr;
+    padding: 24px;
   }
 
   .footer-main {
@@ -1643,8 +1509,15 @@ button {
     scroll-padding-top: 78px;
   }
 
+  .btn-outline,
+  .shoe-card,
+  .product-tag,
+  .site-header.scrolled {
+    backdrop-filter: none;
+  }
+
   .section-padding {
-    padding: 76px 0;
+    padding: 56px 0;
   }
 
   .hero {
@@ -1669,20 +1542,12 @@ button {
     padding: 12px;
   }
 
-  .shoe-card img {
-    height: 120px;
-  }
-
   .impact-stats {
     gap: 40px 48px;
   }
 
   .bestseller-overlay h3 {
     font-size: 1.45rem;
-  }
-
-  .category-image {
-    height: 280px;
   }
 
   .contact-form-row {
@@ -1744,7 +1609,7 @@ button {
   }
 
   .section-padding {
-    padding: 68px 0;
+    padding: 48px 0;
   }
 
   .impact-title {
@@ -1758,10 +1623,6 @@ button {
 
   .bestsellers-header {
     margin-bottom: 36px;
-  }
-
-  .bestseller-card {
-    height: 380px;
   }
 
   .bestseller-overlay {
@@ -1782,20 +1643,18 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .category-image {
-    height: 300px;
-  }
-
   .newsletter-section {
-    padding-bottom: 40px;
+    padding-bottom: 32px;
   }
 
   .newsletter-banner {
-    padding: 42px 24px;
+    padding: 32px 20px;
+    min-height: auto;
   }
 
   .newsletter-content {
-    padding: 46px 22px;
+    padding: 32px 20px;
+    min-height: auto;
   }
 
   .newsletter-form {
@@ -1808,7 +1667,11 @@ button {
   }
 
   .contact-form {
-    padding: 22px;
+    padding: 20px;
+  }
+
+  .contact-field {
+    margin-bottom: 12px;
   }
 
   .contact-field input,
@@ -1816,28 +1679,19 @@ button {
     font-size: 16px;
   }
 
+  .contact-grid {
+    gap: 20px;
+  }
+
   .site-footer {
     margin: 0;
     border-radius: 22px 22px 0 0;
-    padding-top: 28px;
-  }
-
-  .footer-cta {
-    padding: 24px;
-  }
-
-  .footer-cta-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .footer-cta-btn {
-    width: 100%;
+    padding-top: 24px;
   }
 
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 34px;
+    gap: 28px;
   }
 
   .footer-logo-box {
