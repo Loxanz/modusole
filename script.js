@@ -4,6 +4,7 @@ const navMenu = document.getElementById("navMenu");
 const navLinks = document.querySelectorAll(".nav-menu a");
 const newsletterForm = document.querySelector(".newsletter-form");
 const footerNewsletterForm = document.querySelector(".footer-newsletter-form");
+const contactForm = document.getElementById("contactForm");
 
 const googleFormModal = document.getElementById("googleFormModal");
 const googleFormTitle = document.getElementById("googleFormTitle");
@@ -56,6 +57,16 @@ if (newsletterForm) {
 
 if (footerNewsletterForm) {
   footerNewsletterForm.addEventListener("submit", handleSubscription);
+}
+
+function handleContactSubmit(event) {
+  event.preventDefault();
+  alert("Thank you for reaching out! We will get back to you soon.");
+  event.target.reset();
+}
+
+if (contactForm) {
+  contactForm.addEventListener("submit", handleContactSubmit);
 }
 
 function openGoogleForm(event) {

@@ -20,6 +20,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -27,6 +29,9 @@ body {
   color: var(--dark-brown);
   background: var(--cream);
   line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 body.modal-open {
@@ -110,6 +115,7 @@ button {
   width: 100%;
   z-index: 50;
   padding: 12px 0;
+  padding-top: max(12px, env(safe-area-inset-top));
   transition: 0.25s ease;
 }
 
@@ -215,15 +221,32 @@ button {
 
 .hero {
   padding: 150px 0 68px;
+  padding-top: calc(150px + env(safe-area-inset-top));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
     radial-gradient(circle at 18% 24%, rgba(255, 209, 125, 0.34), transparent 28%),
     radial-gradient(circle at 75% 48%, rgba(142, 76, 31, 0.38), transparent 30%),
-    linear-gradient(135deg, rgba(90, 53, 25, 0.55), rgba(246, 190, 116, 0.3)),
-    url("images/nikepink.webp");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
+    linear-gradient(135deg, rgba(90, 53, 25, 0.55), rgba(246, 190, 116, 0.3));
 }
 
 .hero::before {
@@ -233,7 +256,7 @@ button {
   background:
     linear-gradient(180deg, rgba(40, 24, 12, 0.26), rgba(75, 35, 10, 0.36)),
     radial-gradient(circle at 38% 78%, rgba(255, 216, 145, 0.25), transparent 35%);
-  z-index: 0;
+  z-index: 1;
 }
 
 .hero::after {
@@ -247,7 +270,12 @@ button {
   border-radius: 50%;
   filter: blur(2px);
   transform: rotate(-15deg);
-  z-index: 0;
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-grid {
@@ -499,6 +527,10 @@ button {
   transition: flex 0.45s ease, transform 0.35s ease, box-shadow 0.35s ease;
 }
 
+.bestseller-card--red {
+  background: #c62828;
+}
+
 .bestseller-grid:hover .bestseller-card {
   flex: 0.75;
 }
@@ -629,7 +661,7 @@ button {
 }
 
 .view-products-btn:hover {
-  background: #050505;
+  background: #d84a26;
   color: var(--white);
   transform: translateY(-3px);
 }
@@ -861,6 +893,134 @@ button {
   font-size: 0.78rem;
 }
 
+.contact-section {
+  background: #f5f0e8;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.contact-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #34404a;
+}
+
+.contact-info h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  line-height: 0.98;
+  letter-spacing: -1.5px;
+  color: #050505;
+  margin-bottom: 16px;
+}
+
+.contact-info > p {
+  color: #34404a;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.contact-details {
+  font-style: normal;
+}
+
+.contact-details p {
+  color: #1f2a35;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.contact-details strong {
+  color: #050505;
+}
+
+.contact-form {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 18px 50px rgba(33, 20, 9, 0.1);
+}
+
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contact-field {
+  margin-bottom: 18px;
+}
+
+.contact-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #34404a;
+  margin-bottom: 8px;
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  border: 1px solid rgba(17, 17, 17, 0.2);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #111111;
+  background: #fbfaf7;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.contact-field textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: var(--orange-dark);
+  box-shadow: 0 0 0 4px rgba(216, 74, 38, 0.12);
+  background: var(--white);
+}
+
+.contact-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: var(--orange-dark);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  margin-top: 6px;
+}
+
+.contact-submit-btn:hover {
+  background: #b83c1d;
+  transform: translateY(-2px);
+}
+
 .site-footer {
   position: relative;
   overflow: hidden;
@@ -872,6 +1032,7 @@ button {
   margin: 0 12px;
   border-radius: 28px 28px 0 0;
   padding: 46px 0 32px;
+  padding-bottom: max(32px, env(safe-area-inset-bottom));
 }
 
 .footer-bg-text {
@@ -1316,6 +1477,46 @@ button {
   display: block;
 }
 
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 24px;
+  }
+
+  .logo {
+    width: 220px;
+    height: 70px;
+  }
+
+  .hero-grid {
+    gap: 40px;
+  }
+
+  .shoe-strip {
+    gap: 14px;
+    padding: 28px 24px 24px 0;
+  }
+
+  .shoe-card img {
+    height: 150px;
+  }
+
+  .bestseller-grid {
+    gap: 24px;
+  }
+
+  .category-grid {
+    gap: 20px;
+  }
+
+  .contact-grid {
+    gap: 48px;
+  }
+
+  .footer-main {
+    gap: 36px;
+  }
+}
+
 @media (max-width: 980px) {
   .menu-toggle {
     display: inline-flex;
@@ -1411,6 +1612,15 @@ button {
     min-height: 300px;
   }
 
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-form {
+    padding: 28px;
+  }
+
   .footer-cta {
     grid-template-columns: 1fr;
   }
@@ -1425,6 +1635,59 @@ button {
 
   .footer-main {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 78px;
+  }
+
+  .section-padding {
+    padding: 76px 0;
+  }
+
+  .hero {
+    padding-top: calc(130px + env(safe-area-inset-top));
+    padding-bottom: 56px;
+  }
+
+  .hero::after {
+    width: 520px;
+    height: 280px;
+    right: -120px;
+    bottom: 140px;
+  }
+
+  .shoe-strip {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 20px 28px;
+  }
+
+  .shoe-card {
+    min-height: 160px;
+    padding: 12px;
+  }
+
+  .shoe-card img {
+    height: 120px;
+  }
+
+  .impact-stats {
+    gap: 40px 48px;
+  }
+
+  .bestseller-overlay h3 {
+    font-size: 1.45rem;
+  }
+
+  .category-image {
+    height: 280px;
+  }
+
+  .contact-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }
 
@@ -1544,6 +1807,15 @@ button {
     width: 100%;
   }
 
+  .contact-form {
+    padding: 22px;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    font-size: 16px;
+  }
+
   .site-footer {
     margin: 0;
     border-radius: 22px 22px 0 0;
@@ -1607,5 +1879,39 @@ button {
 
   .google-form-frame-wrap {
     height: 68vh;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .bestseller-desc {
+    opacity: 1;
+    transform: none;
+    max-height: 70px;
+    margin-bottom: 12px;
+  }
+
+  .bestseller-grid:hover .bestseller-card,
+  .bestseller-grid .bestseller-card:hover {
+    flex: 1;
+    transform: none;
+  }
+
+  .btn-primary:hover,
+  .btn-outline:hover,
+  .product-form-btn:hover,
+  .view-products-btn:hover,
+  .contact-submit-btn:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
